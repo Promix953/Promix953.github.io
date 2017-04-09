@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://promix953.ml/2017/04/09/关于 JavaScript 的数组随机排序/index.html">
 <meta property="og:site_name" content="Promix953's Note">
 <meta property="og:description" content="JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样： 12345function shuffle(arr) &amp;#123;  arr.sort(function () &amp;#123;    return Math.random() - 0.5;  &amp;#125;);&amp;#125; 或者使用更简洁的 ES6 的写法： 123function shuffl">
-<meta property="og:updated_time" content="2017-04-09T10:49:49.263Z">
+<meta property="og:updated_time" content="2017-04-09T11:48:19.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 JavaScript 的数组随机排序">
 <meta name="twitter:description" content="JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样： 12345function shuffle(arr) &amp;#123;  arr.sort(function () &amp;#123;    return Math.random() - 0.5;  &amp;#125;);&amp;#125; 或者使用更简洁的 ES6 的写法： 123function shuffl">
@@ -157,7 +157,7 @@
 
         
         <a href="/2017/04/09/关于 JavaScript 的数组随机排序/" class="archive-article-date">
-  	<time datetime="2017-04-09T10:49:49.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+  	<time datetime="2017-04-09T19:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
 </a>
         
       </header>
@@ -193,7 +193,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> i = arr.length;</div><div class="line">  <span class="keyword">while</span> (i) &#123;</div><div class="line">    <span class="keyword">let</span> j = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * i--);</div><div class="line">    [arr[j], arr[i]] = [arr[i], arr[j]];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>或者对应的 ES5 版本：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = arr.length, t, j;</div><div class="line">  <span class="keyword">while</span> (i) &#123;</div><div class="line">    j = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * i--);</div><div class="line">    t = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = t;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>如果要将数组随机排序，千万不要再用(a, b) =&gt; Math.random() - 0.5这样的方法。目前而言，Fisher–Yates shuffle 算法应该是最好的选择。��。目前而言，Fisher–Yates shuffle 算法应该是最好的选择。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>如果要将数组随机排序，千万不要再用(a, b) =&gt; Math.random() - 0.5这样的方法。目前而言，Fisher–Yates shuffle 算法应该是最好的选择。–Yates shuffle 算法应该是最好的选择。</p>
 
       
 
