@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://promix953.ml/2017/04/09/Gox_简单实在的Go平台交叉编译工具/index.html">
 <meta property="og:site_name" content="Promix953's Note">
 <meta property="og:description" content="Gox 是一个简单的，不花俏的Go平台交叉编译工具，它的用处就和标准的 go build 一样。Gox 会并行地为多种平台编译。Gox 同时也提供了一套交叉编译工具链。Gox 项目地址：https://github.com/mitchellh/gox">
-<meta property="og:updated_time" content="2017-04-09T07:38:52.333Z">
+<meta property="og:updated_time" content="2017-04-09T07:39:49.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gox_简单实在的Go平台交叉编译工具">
 <meta name="twitter:description" content="Gox 是一个简单的，不花俏的Go平台交叉编译工具，它的用处就和标准的 go build 一样。Gox 会并行地为多种平台编译。Gox 同时也提供了一套交叉编译工具链。Gox 项目地址：https://github.com/mitchellh/gox">
@@ -157,14 +157,14 @@
 
         
         <a href="/2017/04/09/Gox_简单实在的Go平台交叉编译工具/" class="archive-article-date">
-  	<time datetime="2017-04-09T07:38:52.333Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+  	<time datetime="2017-04-09T07:39:49.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Gox 是一个简单的，不花俏的Go平台交叉编译工具，它的用处就和标准的 go build 一样。Gox 会并行地为多种平台编译。Gox 同时也提供了一套交叉编译工具链。<br>Gox 项目地址：<a href="https://github.com/mitchellh/gox" target="_blank" rel="external">https://github.com/mitchellh/gox</a><a id="more"></a></p>
+        <p>Gox 是一个简单的，不花俏的Go平台交叉编译工具，它的用处就和标准的 go build 一样。Gox 会并行地为多种平台编译。Gox 同时也提供了一套交叉编译工具链。<br>Gox 项目地址：<a href="https://github.com/mitchellh/gox" target="_blank" rel="external">https://github.com/mitchellh/gox</a><br><a id="more"></a></p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>为了安装 Gox，请使用 go get。我们已经为版本打上了标签，所以可以随便切换标签进行编译：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ go get github.com/mitchellh/gox</div><div class="line">...</div><div class="line">$ gox -h</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>在你使用 Gox 之前，你必须先有一套交叉编译工具链。Gox 可以自动帮你完成这个。你需要做的只是运行(每次更新 Go 都要这样做这步)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gox -build-toolchain ...</div></pre></td></tr></table></figure></p>
 <p>当你完成这个，你可以已经准备好进行交叉编译了。<br>如果你知道怎么去使用 go build, 那么你也知道怎么去使用 Gox 了。例如，编译当前的项目，无需提供参数，只需要调用 gox。Gox 就会根据 CPU 的数量并行地为各个平台编译：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ gox Number of parallel builds: 4</div><div class="line">--&gt; darwin/386: github.com/mitchellh/gox</div><div class="line">--&gt; darwin/amd64: github.com/mitchellh/gox</div><div class="line">--&gt; linux/386: github.com/mitchellh/gox</div><div class="line">--&gt; linux/amd64: github.com/mitchellh/gox</div><div class="line">--&gt; linux/arm: github.com/mitchellh/gox</div><div class="line">--&gt; freebsd/386: github.com/mitchellh/gox</div><div class="line">--&gt; freebsd/amd64: github.com/mitchellh/gox</div><div class="line">--&gt; openbsd/386: github.com/mitchellh/gox</div><div class="line">--&gt; openbsd/amd64: github.com/mitchellh/gox</div><div class="line">--&gt; windows/386: github.com/mitchellh/gox</div><div class="line">--&gt; windows/amd64: github.com/mitchellh/gox</div><div class="line">--&gt; freebsd/arm: github.com/mitchellh/gox</div><div class="line">--&gt; netbsd/386: github.com/mitchellh/gox</div><div class="line">--&gt; netbsd/amd64: github.com/mitchellh/gox</div><div class="line">--&gt; netbsd/arm: github.com/mitchellh/gox</div><div class="line">--&gt; plan9/386: github.com/mitchellh/gox</div></pre></td></tr></table></figure></p>
