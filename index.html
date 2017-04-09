@@ -144,6 +144,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于 JavaScript 的数组随机排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/关于 JavaScript 的数组随机排序/">关于 JavaScript 的数组随机排序</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/关于 JavaScript 的数组随机排序/" class="archive-article-date">
+  	<time datetime="2017-04-09T09:45:19.757Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function shuffle(arr) &#123;</div><div class="line">    arr.sort(function () &#123;</div><div class="line">        return Math.random() - 0.5;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者使用更简洁的 ES6 的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function shuffle(arr) &#123;</div><div class="line">    arr.sort(() =&gt; Math.random() - 0.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我也曾经经常使用这种写法，不久前才意识到，这种写法是有问题的，它并不能真正地随机打乱数组。
+        
+          <a class="article-more-a" href="/2017/04/09/关于 JavaScript 的数组随机排序/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/关于 JavaScript 的数组随机排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Gox_简单实在的Go平台交叉编译工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
