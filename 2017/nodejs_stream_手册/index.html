@@ -2,6 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
+
+  
+  <meta name="keywords" content="NodeJs">
+
+
+  <meta name="description" content="nodejs stream 手册写在前面的话:
+
+如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -9,13 +17,13 @@
   <title>nodejs_stream_手册 | Promix953&#39;s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="nodejs stream 手册写在前面的话:  如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
-<meta name="keywords" content="notebook">
+<meta name="keywords" content="NodeJs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs_stream_手册">
-<meta property="og:url" content="https://promix.me/2017/04/10/nodejs_stream_手册/index.html">
+<meta property="og:url" content="https://promix.me/2017/nodejs_stream_手册/index.html">
 <meta property="og:site_name" content="Promix953's Note">
 <meta property="og:description" content="nodejs stream 手册写在前面的话:  如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
-<meta property="og:updated_time" content="2017-04-10T10:55:44.830Z">
+<meta property="og:updated_time" content="2017-04-10T23:15:14.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs_stream_手册">
 <meta name="twitter:description" content="nodejs stream 手册写在前面的话:  如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
@@ -53,13 +61,15 @@
 		  <h1 class="header-author"><a href="/">Promix953</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">Keep It Simple Do It Well</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/notebook/">笔记</a></li>
+				<li><a href="/tags">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -105,6 +115,8 @@
 			  <h1 class="header-author js-header-author">Promix953</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Keep It Simple Do It Well<i class="icon icon-quo-right"></i></p>
+			
 			
 			
 				
@@ -129,7 +141,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/notebook/">笔记</a></li>
+					<li style="width: 50%"><a href="/tags">标签</a></li>
 		        
 				</ul>
 			</nav>
@@ -156,7 +168,7 @@
   
 
         
-        <a href="/2017/04/10/nodejs_stream_手册/" class="archive-article-date">
+        <a href="/2017/nodejs_stream_手册/" class="archive-article-date">
   	<time datetime="2017-04-10T18:22:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
 </a>
         
@@ -303,7 +315,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NodeJs</a>
         		</li>
       		
 		</ul>
@@ -359,7 +371,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://promix.me/2017/04/10/nodejs_stream_手册/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://promix.me/2017/nodejs_stream_手册/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -373,7 +385,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/10/JS的严格模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/JS的严格模式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -382,6 +394,11 @@
       </div>
     </a>
   
+  
+    <a href="/2017/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -479,7 +496,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">notebook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NodeJs</a>
               </li>
             
             <div class="clearfix"></div>

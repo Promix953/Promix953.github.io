@@ -2,23 +2,33 @@
 <html>
 <head>
   <meta charset="utf-8">
+
+  
+  <meta name="keywords" content="JavaScript">
+
+
+  <meta name="description" content="优点
+消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为
+消除代码运行的一些不安全之处，保证代码运行的安全
+提高编译器效率，增加运行效率
+为未来新版本的JS做好铺垫">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://promix.me">
-  <title>关于 JavaScript 的数组随机排序 | Promix953&#39;s Note</title>
+  <title>JS的严格模式 | Promix953&#39;s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样： 12345function shuffle(arr) &amp;#123;  arr.sort(function () &amp;#123;    return Math.random() - 0.5;  &amp;#125;);&amp;#125; 或者使用更简洁的 ES6 的写法： 123function shuffl">
-<meta name="keywords" content="notebook">
+  <meta name="description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 JavaScript 的数组随机排序">
-<meta property="og:url" content="https://promix.me/2017/04/09/关于 JavaScript 的数组随机排序/index.html">
+<meta property="og:title" content="JS的严格模式">
+<meta property="og:url" content="https://promix.me/2017/JS的严格模式/index.html">
 <meta property="og:site_name" content="Promix953's Note">
-<meta property="og:description" content="JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样： 12345function shuffle(arr) &amp;#123;  arr.sort(function () &amp;#123;    return Math.random() - 0.5;  &amp;#125;);&amp;#125; 或者使用更简洁的 ES6 的写法： 123function shuffl">
-<meta property="og:updated_time" content="2017-04-09T11:54:18.449Z">
+<meta property="og:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫">
+<meta property="og:updated_time" content="2017-04-10T23:15:34.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于 JavaScript 的数组随机排序">
-<meta name="twitter:description" content="JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样： 12345function shuffle(arr) &amp;#123;  arr.sort(function () &amp;#123;    return Math.random() - 0.5;  &amp;#125;);&amp;#125; 或者使用更简洁的 ES6 的写法： 123function shuffl">
+<meta name="twitter:title" content="JS的严格模式">
+<meta name="twitter:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫">
   
     <link rel="alternative" href="/atom.xml" title="Promix953&#39;s Note" type="application/atom+xml">
   
@@ -53,13 +63,15 @@
 		  <h1 class="header-author"><a href="/">Promix953</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">Keep It Simple Do It Well</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/notebook/">笔记</a></li>
+				<li><a href="/tags">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -105,6 +117,8 @@
 			  <h1 class="header-author js-header-author">Promix953</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Keep It Simple Do It Well<i class="icon icon-quo-right"></i></p>
+			
 			
 			
 				
@@ -129,7 +143,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/notebook/">笔记</a></li>
+					<li style="width: 50%"><a href="/tags">标签</a></li>
 		        
 				</ul>
 			</nav>
@@ -144,57 +158,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于 JavaScript 的数组随机排序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS的严格模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于 JavaScript 的数组随机排序
+      JS的严格模式
     </h1>
   
 
         
-        <a href="/2017/04/09/关于 JavaScript 的数组随机排序/" class="archive-article-date">
-  	<time datetime="2017-04-09T19:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+        <a href="/2017/JS的严格模式/" class="archive-article-date">
+  	<time datetime="2017-04-10T18:09:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  arr.sort(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>或者使用更简洁的 ES6 的写法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我也曾经经常使用这种写法，不久前才意识到，这种写法是有问题的，它并不能真正地随机打乱数组。<a id="more"></a></p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>看下面的代码，我们生成一个长度为 10 的数组[‘a’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, ‘g’, ‘h’, ‘i’, ‘j’]，使用上面的方法将数组乱序，执行多次后，会发现每个元素仍然有很大机率在它原来的位置附近出现。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> n = <span class="number">10000</span>;</div><div class="line"><span class="keyword">let</span> count = (<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>)).fill(<span class="number">0</span>);</div><div class="line"> </div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</div><div class="line">  <span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>];</div><div class="line">  arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>);</div><div class="line">  count[arr.indexOf(<span class="string">'a'</span>)]++;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(count);</div></pre></td></tr></table></figure>
-<p>在 Node.JS 6 中执行，输出[ 2891, 2928, 1927, 1125, 579, 270, 151, 76, 34, 19 ]（带有一定随机性，每次结果都不同，但大致分布应该一致），即进行 10000 次排序后，字母’a’（数组中的第一个元素）有约 2891 次出现在第一个位置、2928 次出现在第二个位置，与之对应的只有 19 次出现在最后一个位置。<br>类似地，我们可以算出字母’f’（数组中的第六个元素）在各个位置出现的分布为[ 312, 294, 579, 1012, 1781, 2232, 1758, 1129, 586, 317 ]。<br>如果排序真的是随机的，那么每个元素在每个位置出现的概率都应该一样，实验结果各个位置的数字应该很接近，而不应像现在这样明显地集中在原来位置附近。因此，我们可以认为，使用形如arr.sort(() =&gt; Math.random() - 0.5)这样的方法得到的并不是真正的随机排序。<br>另外，需要注意的是上面的分布仅适用于数组长度不超过 10 的情况，如果数组更长，比如长度为 11，则会是另一种分布。比如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>]; <span class="comment">// 长度为11</span></div><div class="line"><span class="keyword">let</span> n = <span class="number">10000</span>;</div><div class="line"><span class="keyword">let</span> count = (<span class="keyword">new</span> <span class="built_in">Array</span>(a.length)).fill(<span class="number">0</span>);</div><div class="line"> </div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</div><div class="line">  <span class="keyword">let</span> arr = [].concat(a);</div><div class="line">  arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>);</div><div class="line">  count[arr.indexOf(<span class="string">'a'</span>)]++;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(count);</div></pre></td></tr></table></figure>
-<p>在 Node.JS 6 中执行，结果为[ 785, 819, 594, 679, 941, 1067, 932, 697, 624, 986, 1876 ]。<br>分布不同的原因是 v8 引擎中针对短数组和长数组使用了不同的排序方法（下面会讲）。可以看到，两种算法的结果虽然不同，但都明显不够均匀。<br>国外有人写了一个Shuffle算法可视化的页面，在上面可以更直观地看到使用arr.sort(() =&gt; Math.random() - 0.5)的确是很不随机的。  </p>
-<h1 id="探索"><a href="#探索" class="headerlink" title="探索"></a>探索</h1><p>看了一下ECMAScript中关于Array.prototype.sort(comparefn)的标准，其中并没有规定具体的实现算法，但是提到一点：  </p>
-<blockquote>
-<p>Calling comparefn(a,b) always returns the same value v when given a specific pair of values a and b as its two arguments.</p>
-</blockquote>
-<p>也就是说，对同一组a、b的值，comparefn(a, b)需要总是返回相同的值。而上面的() =&gt; Math.random() - 0.5（即(a, b) =&gt; Math.random() - 0.5）显然不满足这个条件。<br>翻看v8引擎数组部分的源码，注意到它出于对性能的考虑，对短数组使用的是插入排序，对长数组则使用了快速排序，至此，也就能理解为什么() =&gt; Math.random() - 0.5并不能真正随机打乱数组排序了。（有一个没明白的地方：源码中说的是对长度小于等于 22 的使用插入排序，大于 22 的使用快排，但实际测试结果显示分界长度是 10。）  </p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>知道问题所在，解决方案也就比较简单了。  </p>
-<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><p>既然(a, b) =&gt; Math.random() - 0.5的问题是不能保证针对同一组a、b每次返回的值相同，那么我们不妨将数组元素改造一下，比如将每个元素i改造为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> new_i = &#123;</div><div class="line">  <span class="attr">v</span>: i,</div><div class="line">  <span class="attr">r</span>: <span class="built_in">Math</span>.random()</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>即将它改造为一个对象，原来的值存储在键v中，同时给它增加一个键r，值为一个随机数，然后排序时比较这个随机数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.r - b.r);</div></pre></td></tr></table></figure>
-<p>完整代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> new_arr = arr.map(<span class="function"><span class="params">i</span> =&gt;</span> (&#123;<span class="attr">v</span>: i, <span class="attr">r</span>: <span class="built_in">Math</span>.random()&#125;));</div><div class="line">  new_arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.r - b.r);</div><div class="line">  arr.splice(<span class="number">0</span>, arr.length, ...new_arr.map(<span class="function"><span class="params">i</span> =&gt;</span> i.v));</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">let</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>];</div><div class="line"><span class="keyword">let</span> n = <span class="number">10000</span>;</div><div class="line"><span class="keyword">let</span> count = (<span class="keyword">new</span> <span class="built_in">Array</span>(a.length)).fill(<span class="number">0</span>);</div><div class="line"> </div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</div><div class="line">  shuffle(a);</div><div class="line">  count[a.indexOf(<span class="string">'a'</span>)]++;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(count);</div></pre></td></tr></table></figure>
-<p>一次执行结果为：[ 1023, 991, 1007, 967, 990, 1032, 968, 1061, 990, 971 ]。多次验证，同时查看shuffle(arr)函数结果的可视化分布，可以看到，这个方法可以认为足够随机了。</p>
-<h2 id="方案二（Fisher–Yates-shuffle）"><a href="#方案二（Fisher–Yates-shuffle）" class="headerlink" title="方案二（Fisher–Yates shuffle）"></a>方案二（Fisher–Yates shuffle）</h2><p>需要注意的是，上面的方法虽然满足随机性要求了，但在性能上并不是很好，需要遍历几次数组，还要对数组进行splice等操作。<br>考察Lodash 库中的 shuffle 算法，注意到它使用的实际上是Fisher–Yates 洗牌算法，这个算法由 Ronald Fisher 和 Frank Yates 于 1938 年提出，然后在 1964 年由 Richard Durstenfeld 改编为适用于电脑编程的版本。用伪代码描述如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-- To shuffle an array a <span class="keyword">of</span> n elements (indices <span class="number">0.</span>.n<span class="number">-1</span>):</div><div class="line"><span class="keyword">for</span> i <span class="keyword">from</span> n−<span class="number">1</span> downto <span class="number">1</span> <span class="keyword">do</span></div><div class="line">  j ← random integer such that <span class="number">0</span> ≤ j ≤ i</div><div class="line">  exchange a[j] and a[i]</div></pre></td></tr></table></figure>
-<p>一个实现如下（ES6）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> i = arr.length;</div><div class="line">  <span class="keyword">while</span> (i) &#123;</div><div class="line">    <span class="keyword">let</span> j = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * i--);</div><div class="line">    [arr[j], arr[i]] = [arr[i], arr[j]];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>或者对应的 ES5 版本：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = arr.length, t, j;</div><div class="line">  <span class="keyword">while</span> (i) &#123;</div><div class="line">    j = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * i--);</div><div class="line">    t = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = t;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>如果要将数组随机排序，千万不要再用(a, b) =&gt; Math.random() - 0.5这样的方法。目前而言，Fisher–Yates shuffle 算法应该是最好的选择。–Yates shuffle 算法应该是最好的选择。</p>
-
+        <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全</li>
+<li>提高编译器效率，增加运行效率</li>
+<li>为未来新版本的JS做好铺垫<a id="more"></a>
+<h2 id="详细"><a href="#详细" class="headerlink" title="详细"></a>详细</h2></li>
+<li><p>全局变量必须显示声明</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    v = <span class="number">1</span>; <span class="comment">// 报错，v未声明</span></div><div class="line">    <span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">* 静态绑定，属性和方法到底归属哪个对象，在编译阶段就确定。提高了编译器的效率</div><div class="line"></div><div class="line">    `<span class="string">``</span> js</div><div class="line">    <span class="comment">//禁止使用with语句 因为无法在编译时确定属性归属的对象</span></div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">　　<span class="keyword">var</span> v = <span class="number">1</span>;</div><div class="line">　　<span class="keyword">with</span> (o)&#123; <span class="comment">// 语法错误 </span></div><div class="line">　　　　v = <span class="number">2</span>;</div><div class="line">　　&#125;</div><div class="line">　　<span class="comment">// 创建了eval作用域正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。</span></div><div class="line"><span class="meta">　　"use strict"</span>;</div><div class="line">　　<span class="keyword">var</span> x = <span class="number">2</span>;</div><div class="line">　　<span class="built_in">console</span>.info(<span class="built_in">eval</span>(<span class="string">"var x = 5; x"</span>)); <span class="comment">// 5</span></div><div class="line">　　<span class="built_in">console</span>.info(x); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>增强的安全措施</p>
+<ul>
+<li><p>禁止this关键字指向全局对象</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用构造函数时 如果忘了加new，this不再指向全局对象，而是报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="string">"ues strict"</span>;</div><div class="line">    <span class="keyword">this</span>.a = <span class="number">1</span>;</div><div class="line">&#125;;</div><div class="line">f(); <span class="comment">// 报错，this未定义</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>禁止在函数内部遍历调用栈</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    f1.caller; <span class="comment">// error</span></div><div class="line">    f1.arguments; <span class="comment">// error</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁止删除变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 严格模式下无法删除变量。只用configurable设置为true的对象属性，才能被删除</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">var</span> x;</div><div class="line">detele x; <span class="comment">//error</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> r = <span class="built_in">Object</span>.create(<span class="literal">null</span>, &#123;<span class="string">'x'</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">configureable</span>: <span class="literal">true</span></div><div class="line">&#125;&#125;)</div><div class="line"></div><div class="line"><span class="keyword">delete</span> o.x; <span class="comment">// delete success</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>显示报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正常模式下。对一个对象的只读属性进行赋值，不会报错，会默默的失败，严格模式下，会报错</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line">    </div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">"v"</span>, &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">writable</span>: <span class="literal">false</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">o.v = <span class="number">2</span>; <span class="comment">// error</span></div><div class="line"></div><div class="line"><span class="comment">// 严格模式下，对一个使用getter方法读取的属性进行赋值，会报错</span></div><div class="line"><span class="meta"></span></div><div class="line">"use strict";</div><div class="line"></div><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    get v() &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.v = <span class="number">2</span>; <span class="comment">// error</span></div><div class="line"></div><div class="line"><span class="comment">//严格模式下，对禁止扩展的对象添加新属性，会报错。</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;　</div><div class="line"><span class="built_in">Object</span>.preventExtensions(o);</div><div class="line">o.v = <span class="number">1</span>; <span class="comment">// error</span></div><div class="line">　　</div><div class="line">    　　<span class="comment">//严格模式下，删除一个不可删除的属性，会报错</span></div><div class="line"><span class="meta">    　　</span></div><div class="line">    　　"use strict";</div><div class="line">    　　<span class="keyword">delete</span> <span class="built_in">Object</span>.prototype; <span class="comment">// error</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>重名错误，对象不能有重名的参数，对象不能有重名的属性</p>
+</li>
+<li>禁止八进制表示法</li>
+<li><p>arguments对象的限制</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 不允许对arguments赋值</span></div><div class="line"><span class="comment">// arguments不再追踪参数的变化</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    a = <span class="number">2</span>;</div><div class="line">    <span class="keyword">return</span> [a, <span class="built_in">arguments</span>[<span class="number">0</span>]];</div><div class="line">&#125; </div><div class="line">f(<span class="number">1</span>) <span class="comment">// 正常模式 [2, 2]</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    a = <span class="number">2</span>;</div><div class="line">    <span class="keyword">return</span> [a, <span class="built_in">arguments</span>[<span class="number">0</span>]];</div><div class="line">&#125; </div><div class="line">f(<span class="number">1</span>) <span class="comment">// 严格模式下 [2, 1]</span></div><div class="line"></div><div class="line"><span class="comment">// 禁止使用arguments.callee</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>函数必须声明在顶层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 严格模式只允许在全局作用域或函数作用域的顶层声明函数，也就是说，不允许在非函数的代码块内声明函数</span></div><div class="line"><span class="meta"></span></div><div class="line">"use strict";</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="comment">// ...&#125; // error</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(...) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="comment">// ... &#125; // error</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 保留字，使用保留字会报错
+</code></pre>
       
 
       
@@ -207,7 +229,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -263,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://promix.me/2017/04/09/关于 JavaScript 的数组随机排序/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://promix.me/2017/JS的严格模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +299,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/09/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/关于 JavaScript 的数组随机排序/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hello World
+          关于 JavaScript 的数组随机排序
         
       </div>
     </a>
   
   
-    <a href="/2017/04/10/JS的严格模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JS的严格模式</div>
+    <a href="/2017/nodejs_stream_手册/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs_stream_手册</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +410,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">notebook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NodeJs</a>
               </li>
             
             <div class="clearfix"></div>
