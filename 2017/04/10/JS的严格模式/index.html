@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://promix953.ml">
   <title>JS的严格模式 | Promix953&#39;s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫  ##详细  全局变量必须显示声明   123456789101112131415161718    &quot;use strict&quot;;    v = 1; // 报错，v未声明    ``` * 静态绑定，属性和方法到底归属哪个对象，">
+  <meta name="description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫">
 <meta name="keywords" content="notebook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS的严格模式">
 <meta property="og:url" content="http://promix953.ml/2017/04/10/JS的严格模式/index.html">
 <meta property="og:site_name" content="Promix953's Note">
-<meta property="og:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫  ##详细  全局变量必须显示声明   123456789101112131415161718    &quot;use strict&quot;;    v = 1; // 报错，v未声明    ``` * 静态绑定，属性和方法到底归属哪个对象，">
-<meta property="og:updated_time" content="2017-04-10T10:10:30.343Z">
+<meta property="og:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫">
+<meta property="og:updated_time" content="2017-04-10T10:12:24.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS的严格模式">
-<meta name="twitter:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫  ##详细  全局变量必须显示声明   123456789101112131415161718    &quot;use strict&quot;;    v = 1; // 报错，v未声明    ``` * 静态绑定，属性和方法到底归属哪个对象，">
+<meta name="twitter:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫">
   
     <link rel="alternative" href="/atom.xml" title="Promix953&#39;s Note" type="application/atom+xml">
   
@@ -168,10 +168,8 @@
 <li>消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为</li>
 <li>消除代码运行的一些不安全之处，保证代码运行的安全</li>
 <li>提高编译器效率，增加运行效率</li>
-<li>为未来新版本的JS做好铺垫</li>
-</ul>
-<p>##详细</p>
-<ul>
+<li>为未来新版本的JS做好铺垫<a id="more"></a>
+##详细</li>
 <li><p>全局变量必须显示声明</p>
   <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    v = <span class="number">1</span>; <span class="comment">// 报错，v未声明</span></div><div class="line">    <span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">* 静态绑定，属性和方法到底归属哪个对象，在编译阶段就确定。提高了编译器的效率</div><div class="line"></div><div class="line">    `<span class="string">``</span> js</div><div class="line">    <span class="comment">//禁止使用with语句 因为无法在编译时确定属性归属的对象</span></div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">　　<span class="keyword">var</span> v = <span class="number">1</span>;</div><div class="line">　　<span class="keyword">with</span> (o)&#123; <span class="comment">// 语法错误 </span></div><div class="line">　　　　v = <span class="number">2</span>;</div><div class="line">　　&#125;</div><div class="line">　　<span class="comment">// 创建了eval作用域正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。</span></div><div class="line"><span class="meta">　　"use strict"</span>;</div><div class="line">　　<span class="keyword">var</span> x = <span class="number">2</span>;</div><div class="line">　　<span class="built_in">console</span>.info(<span class="built_in">eval</span>(<span class="string">"var x = 5; x"</span>)); <span class="comment">// 5</span></div><div class="line">　　<span class="built_in">console</span>.info(x); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
 </li>
