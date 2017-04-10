@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://promix.me/tags/index.html</loc>
+    
+    <lastmod>2017-04-10T23:43:26.139Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://promix.me/2017/Gox_%E7%AE%80%E5%8D%95%E5%AE%9E%E5%9C%A8%E7%9A%84Go%E5%B9%B3%E5%8F%B0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2017-04-10T23:16:28.019Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://promix.me/2017/%E5%85%B3%E4%BA%8E%20JavaScript%20%E7%9A%84%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E6%8E%92%E5%BA%8F/</loc>
     
     <lastmod>2017-04-10T23:14:55.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://promix.me/tags/index.html</loc>
-    
-    <lastmod>2017-04-10T22:19:13.930Z</lastmod>
     
   </url>
   
