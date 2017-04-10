@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://promix953.ml">
-  <title>Archives | Promix953&#39;s Note</title>
+  <title>JS的严格模式 | Promix953&#39;s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Keep It Simple Do It Well">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Promix953's Note">
-<meta property="og:url" content="http://promix953.ml/archives/index.html">
+  <meta name="description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫  ##详细  全局变量必须显示声明   123456789101112131415161718    &quot;use strict&quot;;    v = 1; // 报错，v未声明    ``` * 静态绑定，属性和方法到底归属哪个对象，">
+<meta name="keywords" content="notebook">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS的严格模式">
+<meta property="og:url" content="http://promix953.ml/2017/04/10/JS的严格模式/index.html">
 <meta property="og:site_name" content="Promix953's Note">
-<meta property="og:description" content="Keep It Simple Do It Well">
+<meta property="og:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫  ##详细  全局变量必须显示声明   123456789101112131415161718    &quot;use strict&quot;;    v = 1; // 报错，v未声明    ``` * 静态绑定，属性和方法到底归属哪个对象，">
+<meta property="og:updated_time" content="2017-04-10T10:10:30.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promix953's Note">
-<meta name="twitter:description" content="Keep It Simple Do It Well">
+<meta name="twitter:title" content="JS的严格模式">
+<meta name="twitter:description" content="优点 消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为 消除代码运行的一些不安全之处，保证代码运行的安全 提高编译器效率，增加运行效率 为未来新版本的JS做好铺垫  ##详细  全局变量必须显示声明   123456789101112131415161718    &quot;use strict&quot;;    v = 1; // 报错，v未声明    ``` * 静态绑定，属性和方法到底归属哪个对象，">
   
     <link rel="alternative" href="/atom.xml" title="Promix953&#39;s Note" type="application/atom+xml">
   
@@ -142,36 +144,74 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-JS的严格模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      JS的严格模式
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/10/JS的严格模式/" class="archive-article-date">
+
+        
+        <a href="/2017/04/10/JS的严格模式/" class="archive-article-date">
   	<time datetime="2017-04-10T18:09:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/JS的严格模式/">JS的严格模式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全</li>
+<li>提高编译器效率，增加运行效率</li>
+<li>为未来新版本的JS做好铺垫</li>
+</ul>
+<p>##详细</p>
+<ul>
+<li><p>全局变量必须显示声明</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    v = <span class="number">1</span>; <span class="comment">// 报错，v未声明</span></div><div class="line">    <span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">* 静态绑定，属性和方法到底归属哪个对象，在编译阶段就确定。提高了编译器的效率</div><div class="line"></div><div class="line">    `<span class="string">``</span> js</div><div class="line">    <span class="comment">//禁止使用with语句 因为无法在编译时确定属性归属的对象</span></div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">　　<span class="keyword">var</span> v = <span class="number">1</span>;</div><div class="line">　　<span class="keyword">with</span> (o)&#123; <span class="comment">// 语法错误 </span></div><div class="line">　　　　v = <span class="number">2</span>;</div><div class="line">　　&#125;</div><div class="line">　　<span class="comment">// 创建了eval作用域正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。</span></div><div class="line"><span class="meta">　　"use strict"</span>;</div><div class="line">　　<span class="keyword">var</span> x = <span class="number">2</span>;</div><div class="line">　　<span class="built_in">console</span>.info(<span class="built_in">eval</span>(<span class="string">"var x = 5; x"</span>)); <span class="comment">// 5</span></div><div class="line">　　<span class="built_in">console</span>.info(x); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>增强的安全措施</p>
+<ul>
+<li><p>禁止this关键字指向全局对象</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用构造函数时 如果忘了加new，this不再指向全局对象，而是报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="string">"ues strict"</span>;</div><div class="line">    <span class="keyword">this</span>.a = <span class="number">1</span>;</div><div class="line">&#125;;</div><div class="line">f(); <span class="comment">// 报错，this未定义</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>禁止在函数内部遍历调用栈</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    f1.caller; <span class="comment">// error</span></div><div class="line">    f1.arguments; <span class="comment">// error</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁止删除变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 严格模式下无法删除变量。只用configurable设置为true的对象属性，才能被删除</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">var</span> x;</div><div class="line">detele x; <span class="comment">//error</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> r = <span class="built_in">Object</span>.create(<span class="literal">null</span>, &#123;<span class="string">'x'</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">configureable</span>: <span class="literal">true</span></div><div class="line">&#125;&#125;)</div><div class="line"></div><div class="line"><span class="keyword">delete</span> o.x; <span class="comment">// delete success</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>显示报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正常模式下。对一个对象的只读属性进行赋值，不会报错，会默默的失败，严格模式下，会报错</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line">    </div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">"v"</span>, &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">writable</span>: <span class="literal">false</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">o.v = <span class="number">2</span>; <span class="comment">// error</span></div><div class="line"></div><div class="line"><span class="comment">// 严格模式下，对一个使用getter方法读取的属性进行赋值，会报错</span></div><div class="line"><span class="meta"></span></div><div class="line">"use strict";</div><div class="line"></div><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    get v() &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.v = <span class="number">2</span>; <span class="comment">// error</span></div><div class="line"></div><div class="line"><span class="comment">//严格模式下，对禁止扩展的对象添加新属性，会报错。</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;　</div><div class="line"><span class="built_in">Object</span>.preventExtensions(o);</div><div class="line">o.v = <span class="number">1</span>; <span class="comment">// error</span></div><div class="line">　　</div><div class="line">    　　<span class="comment">//严格模式下，删除一个不可删除的属性，会报错</span></div><div class="line"><span class="meta">    　　</span></div><div class="line">    　　"use strict";</div><div class="line">    　　<span class="keyword">delete</span> <span class="built_in">Object</span>.prototype; <span class="comment">// error</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>重名错误，对象不能有重名的参数，对象不能有重名的属性</p>
+</li>
+<li>禁止八进制表示法</li>
+<li><p>arguments对象的限制</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 不允许对arguments赋值</span></div><div class="line"><span class="comment">// arguments不再追踪参数的变化</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    a = <span class="number">2</span>;</div><div class="line">    <span class="keyword">return</span> [a, <span class="built_in">arguments</span>[<span class="number">0</span>]];</div><div class="line">&#125; </div><div class="line">f(<span class="number">1</span>) <span class="comment">// 正常模式 [2, 2]</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line">    a = <span class="number">2</span>;</div><div class="line">    <span class="keyword">return</span> [a, <span class="built_in">arguments</span>[<span class="number">0</span>]];</div><div class="line">&#125; </div><div class="line">f(<span class="number">1</span>) <span class="comment">// 严格模式下 [2, 1]</span></div><div class="line"></div><div class="line"><span class="comment">// 禁止使用arguments.callee</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>函数必须声明在顶层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 严格模式只允许在全局作用域或函数作用域的顶层声明函数，也就是说，不允许在非函数的代码块内声明函数</span></div><div class="line"><span class="meta"></span></div><div class="line">"use strict";</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="comment">// ...&#125; // error</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(...) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="comment">// ... &#125; // error</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 保留字，使用保留字会报错
+</code></pre>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -183,209 +223,92 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://promix953.ml/2017/04/10/JS的严格模式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/09/关于 JavaScript 的数组随机排序/" class="archive-article-date">
-  	<time datetime="2017-04-09T19:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/09/关于 JavaScript 的数组随机排序/">关于 JavaScript 的数组随机排序</a>
-    </h1>
+    <a href="/2017/04/09/关于 JavaScript 的数组随机排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于 JavaScript 的数组随机排序
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/09/hello-world/" class="archive-article-date">
-  	<time datetime="2017-04-09T07:30:52.274Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/08/Gox_简单实在的Go平台交叉编译工具/" class="archive-article-date">
-  	<time datetime="2017-04-08T21:40:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/08/Gox_简单实在的Go平台交叉编译工具/">Gox_简单实在的Go平台交叉编译工具</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/03/JS中浮点数运算不精准/" class="archive-article-date">
-  	<time datetime="2017-04-03T21:51:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/03/JS中浮点数运算不精准/">JS中浮点数运算不精准</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/03/axios 简介/" class="archive-article-date">
-  	<time datetime="2017-04-03T21:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/03/axios 简介/">axios 简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -408,8 +331,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
