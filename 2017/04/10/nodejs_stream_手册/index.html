@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://promix953.ml">
-  <title>Promix953&#39;s Note</title>
+  <title>nodejs_stream_手册 | Promix953&#39;s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Keep It Simple Do It Well">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Promix953's Note">
-<meta property="og:url" content="http://promix953.ml/index.html">
+  <meta name="description" content="nodejs stream 手册写在前面的话:  如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
+<meta name="keywords" content="notebook">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs_stream_手册">
+<meta property="og:url" content="http://promix953.ml/2017/04/10/nodejs_stream_手册/index.html">
 <meta property="og:site_name" content="Promix953's Note">
-<meta property="og:description" content="Keep It Simple Do It Well">
+<meta property="og:description" content="nodejs stream 手册写在前面的话:  如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
+<meta property="og:updated_time" content="2017-04-10T10:54:19.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promix953's Note">
-<meta name="twitter:description" content="Keep It Simple Do It Well">
+<meta name="twitter:title" content="nodejs_stream_手册">
+<meta name="twitter:description" content="nodejs stream 手册写在前面的话:  如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的stream-handbook绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack">
   
     <link rel="alternative" href="/atom.xml" title="Promix953&#39;s Note" type="application/atom+xml">
   
@@ -142,16 +144,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-nodejs_stream_手册" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-nodejs_stream_手册" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/nodejs_stream_手册/">nodejs_stream_手册</a>
+    <h1 class="article-title" itemprop="name">
+      nodejs_stream_手册
     </h1>
   
 
@@ -311,18 +311,78 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/10/nodejs_stream_手册/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://promix953.ml/2017/04/10/nodejs_stream_手册/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/10/JS的严格模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JS的严格模式
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
 
 
@@ -330,406 +390,10 @@
 
 
   
-    <article id="post-JS的严格模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/JS的严格模式/">JS的严格模式</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2017/04/10/JS的严格模式/" class="archive-article-date">
-  	<time datetime="2017-04-10T18:09:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为</li>
-<li>消除代码运行的一些不安全之处，保证代码运行的安全</li>
-<li>提高编译器效率，增加运行效率</li>
-<li>为未来新版本的JS做好铺垫
-        
-          <a class="article-more-a" href="/2017/04/10/JS的严格模式/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/10/JS的严格模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-关于 JavaScript 的数组随机排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/关于 JavaScript 的数组随机排序/">关于 JavaScript 的数组随机排序</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/关于 JavaScript 的数组随机排序/" class="archive-article-date">
-  	<time datetime="2017-04-09T19:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  arr.sort(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>或者使用更简洁的 ES6 的写法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  arr.sort(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我也曾经经常使用这种写法，不久前才意识到，这种写法是有问题的，它并不能真正地随机打乱数组。
-        
-          <a class="article-more-a" href="/2017/04/09/关于 JavaScript 的数组随机排序/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/关于 JavaScript 的数组随机排序/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/hello-world/" class="archive-article-date">
-  	<time datetime="2017-04-09T07:30:52.274Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hexo测试…</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Gox_简单实在的Go平台交叉编译工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/Gox_简单实在的Go平台交叉编译工具/">Gox_简单实在的Go平台交叉编译工具</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/Gox_简单实在的Go平台交叉编译工具/" class="archive-article-date">
-  	<time datetime="2017-04-08T21:40:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Gox 是一个简单的，不花俏的Go平台交叉编译工具，它的用处就和标准的 go build 一样。Gox 会并行地为多种平台编译。Gox 同时也提供了一套交叉编译工具链。<br>Gox 项目地址：<a href="https://github.com/mitchellh/gox">https://github.com/mitchellh/gox</a><br>
-        
-          <a class="article-more-a" href="/2017/04/08/Gox_简单实在的Go平台交叉编译工具/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/Gox_简单实在的Go平台交叉编译工具/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS中浮点数运算不精准" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/JS中浮点数运算不精准/">JS中浮点数运算不精准</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/03/JS中浮点数运算不精准/" class="archive-article-date">
-  	<time datetime="2017-04-03T21:51:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Javascript采用了IEEE-745浮点数表示法，这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数都是十进制分数1/10，1/100等，二进制浮点数表示法并不能精确的表示类似0.1这样的简单的数字。所以会有js中浮点数运算不精准的问题出现，我们一般会重写js的四则运算。下面主要看看解决js中浮点数运算不精准的具体方法。
-        
-          <a class="article-more-a" href="/2017/04/03/JS中浮点数运算不精准/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/03/JS中浮点数运算不精准/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-axios 简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/axios 简介/">axios 简介</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/03/axios 简介/" class="archive-article-date">
-  	<time datetime="2017-04-03T21:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：  </p>
-<ul>
-<li>从浏览器中创建 XMLHttpRequest</li>
-<li>从 node.js 发出 http 请求</li>
-<li>支持 Promise API</li>
-<li>拦截请求和响应</li>
-<li>转换请求和响应数据</li>
-<li>取消请求</li>
-<li>自动转换JSON数据</li>
-<li>客户端支持防止 CSRF/XSRF
-        
-          <a class="article-more-a" href="/2017/04/03/axios 简介/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">notebook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/03/axios 简介/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
 
 
           </div>
@@ -751,8 +415,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
