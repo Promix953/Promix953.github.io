@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://promix.me/2017/hello-world/</loc>
+    
+    <lastmod>2017-04-11T19:17:58.159Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://promix.me/2017/%E5%A6%99%E7%94%A8Javascript%E4%B8%ADapply%E3%80%81call%E3%80%81bind/</loc>
     
     <lastmod>2017-04-11T08:55:30.316Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://promix.me/2017/axios%20%E7%AE%80%E4%BB%8B/</loc>
     
     <lastmod>2017-04-11T06:25:27.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://promix.me/2017/hello-world/</loc>
-    
-    <lastmod>2017-04-11T04:57:43.000Z</lastmod>
     
   </url>
   
