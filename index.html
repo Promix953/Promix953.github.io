@@ -271,6 +271,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://promix.me/2017/妙用Javascript中apply、call、bind/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Promix953">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Promix953's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/妙用Javascript中apply、call、bind/" itemprop="url">
+                  妙用Javascript中apply、call、bind
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T16:52:52+00:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="apply、call用法的简单示例"><a href="#apply、call用法的简单示例" class="headerlink" title="apply、call用法的简单示例"></a>apply、call用法的简单示例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fruits</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line">fruits.prototype = &#123;</div><div class="line">	<span class="attr">color</span>: <span class="string">"red"</span>,</div><div class="line">	<span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">"My color is "</span> + <span class="keyword">this</span>.color);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> apple = <span class="keyword">new</span> fruits;</div><div class="line">apple.say();	<span class="comment">//My color is red</span></div><div class="line"></div><div class="line">banana = &#123;</div><div class="line">	<span class="attr">color</span>: <span class="string">"yellow"</span></div><div class="line">&#125;</div><div class="line">apple.say.call(banana);		<span class="comment">//My color is yellow</span></div><div class="line">apple.say.apply(banana);	<span class="comment">//My color is yellow</span></div></pre></td></tr></table></figure>
+<h2 id="apply-、-call-区别"><a href="#apply-、-call-区别" class="headerlink" title="apply 、 call 区别"></a>apply 、 call 区别</h2><p>注意apply传递的参数是数组，而call是按参数顺序传递</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">func.call(<span class="keyword">this</span>, arg1, arg2); </div><div class="line">func.apply(<span class="keyword">this</span>, [arg1, arg2])</div></pre></td></tr></table></figure>
+<h2 id="apply-、-call-用法示例"><a href="#apply-、-call-用法示例" class="headerlink" title="apply 、 call 用法示例"></a>apply 、 call 用法示例</h2><ul>
+<li>数组之间追加</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array1 = [<span class="number">12</span> , <span class="string">"foo"</span> , &#123;name <span class="string">"Joe"</span>&#125; , <span class="number">-2458</span>];  </div><div class="line"><span class="keyword">var</span> array2 = [<span class="string">"Doe"</span> , <span class="number">555</span> , <span class="number">100</span>];  </div><div class="line"><span class="built_in">Array</span>.prototype.push.apply(array1, array2);  </div><div class="line"><span class="comment">/* array1 值为  [12 , "foo" , &#123;name "Joe"&#125; , -2458 , "Doe" , 555 , 100] */</span></div></pre></td></tr></table></figure>
+<ul>
+<li>获取数组中的最大值和最小值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span> ];  </div><div class="line"><span class="keyword">var</span> maxInNumbers = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, numbers),	<span class="comment">//458</span></div><div class="line">	maxInNumbers = <span class="built_in">Math</span>.max.call(<span class="built_in">Math</span>,<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span>);	<span class="comment">//458</span></div></pre></td></tr></table></figure>
+<ul>
+<li>验证是否是数组（前提是toString()方法没有被重写过）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">functionisArray(obj)&#123;  </div><div class="line">    returnObject.prototype.toString.call(obj) === <span class="string">'[object Array]'</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>类（伪）数组使用数组方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> domNodes = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>));</div></pre></td></tr></table></figure>
+<h2 id="一道面试题目"><a href="#一道面试题目" class="headerlink" title="一道面试题目"></a>一道面试题目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用 log 代理 console.log</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">msg</span>)　</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;</div><div class="line"></div><div class="line">log(<span class="number">1</span>);</div><div class="line">log(<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="comment">//优雅的方法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">log(<span class="number">1</span>);</div><div class="line">log(<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="comment">//添加一个 (app) 前缀</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">  args.unshift(<span class="string">'(app)'</span>);</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, args);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="bind-用法简单示例"><a href="#bind-用法简单示例" class="headerlink" title="bind 用法简单示例"></a>bind 用法简单示例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正常情况下使用变量保存 this 值</span></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">	<span class="attr">bar</span> : <span class="number">1</span>,</div><div class="line">	<span class="attr">eventBind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> _this = <span class="keyword">this</span> ;</div><div class="line">		$(<span class="string">'.someClass'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">			<span class="comment">/* Act on the event */</span></div><div class="line">			<span class="built_in">console</span>.log(_this.bar);		<span class="comment">//1</span></div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用 bind 进行函数绑定</span></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">	<span class="attr">bar</span> : <span class="number">1</span>,</div><div class="line">	<span class="attr">eventBind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">'.someClass'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">			<span class="comment">/* Act on the event */</span></div><div class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.bar);		<span class="comment">//1</span></div><div class="line">		&#125;.bind(<span class="keyword">this</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">varfoo = &#123;</div><div class="line">    <span class="attr">x</span>: <span class="number">3</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">bar(); <span class="comment">// undefined</span></div><div class="line"><span class="keyword">var</span> func = bar.bind(foo);</div><div class="line">func(); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<h2 id="apply、call、bind-比较"><a href="#apply、call、bind-比较" class="headerlink" title="apply、call、bind 比较"></a>apply、call、bind 比较</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">x</span>: <span class="number">81</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">	<span class="attr">getX</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.x;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foo.getX.bind(obj)());		<span class="comment">//81</span></div><div class="line"><span class="built_in">console</span>.log(foo.getX.call(obj));		<span class="comment">//81</span></div><div class="line"><span class="built_in">console</span>.log(foo.getX.apply(obj));		<span class="comment">//81</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://promix.me/2017/nodejs_stream_手册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1198,7 +1340,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
