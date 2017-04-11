@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Promix953&#39;s Note</title>
+  <subtitle>Keep It Simple Do It Well</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://promix.me/"/>
+  <updated>2017-04-10T23:16:10.408Z</updated>
+  <id>https://promix.me/</id>
+  
+  <author>
+    <name>Promix953</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://promix.me/2017/hello-world/"/>
+    <id>https://promix.me/2017/hello-world/</id>
+    <published>2017-04-10T23:16:10.408Z</published>
+    <updated>2017-04-10T23:16:10.408Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo测试…&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://promix.me/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs_stream_手册</title>
+    <link href="https://promix.me/2017/nodejs_stream_%E6%89%8B%E5%86%8C/"/>
+    <id>https://promix.me/2017/nodejs_stream_手册/</id>
+    <published>2017-04-10T18:22:52.000Z</published>
+    <updated>2017-04-10T23:15:14.929Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;nodejs-stream-手册&quot;&gt;&lt;a href=&quot;#nodejs-stream-手册&quot; class=&quot;headerlink&quot; title=&quot;nodejs stream 手册&quot;&gt;&lt;/a&gt;nodejs stream 手册&lt;/h1&gt;&lt;p&gt;写在前面的话:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你正在学习Nodejs，那么流一定是一个你需要掌握的概念。如果你想成为一个Node高手，那么流一定是武功秘籍中不可缺少的一个部分。关于流这个主题，由Node高手substack带来的&lt;code&gt;stream-handbook&lt;/code&gt;绝对是经典入门读物之一，其在Github上的star数量已经超过了4500个，足以见其权威程度。本文下面的内容将参考自substack的&lt;a href=&quot;https://github.com/substack/stream-handbook&quot;&gt;这篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="NodeJs" scheme="https://promix.me/tags/NodeJs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS的严格模式</title>
+    <link href="https://promix.me/2017/JS%E7%9A%84%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://promix.me/2017/JS的严格模式/</id>
+    <published>2017-04-10T18:09:24.000Z</published>
+    <updated>2017-04-10T23:15:34.557Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;消除JS语法的一些不合理、不严谨之处、减少一些怪异的行为&lt;/li&gt;
+&lt;li&gt;消除代码运行的一些不安全之处，保证代码运行的安全&lt;/li&gt;
+&lt;li&gt;提高编译器效率，增加运行效率&lt;/li&gt;
+&lt;li&gt;为未来新版本的JS做好铺垫
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://promix.me/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 JavaScript 的数组随机排序</title>
+    <link href="https://promix.me/2017/%E5%85%B3%E4%BA%8E%20JavaScript%20%E7%9A%84%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E6%8E%92%E5%BA%8F/"/>
+    <id>https://promix.me/2017/关于 JavaScript 的数组随机排序/</id>
+    <published>2017-04-09T19:47:44.000Z</published>
+    <updated>2017-04-10T23:14:55.306Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JavaScript 开发中有时会遇到要将一个数组随机排序（shuffle）的需求，一个常见的写法是这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;shuffle&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;arr&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  arr.sort(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Math&lt;/span&gt;.random() - &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者使用更简洁的 ES6 的写法：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;shuffle&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;arr&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  arr.sort(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Math&lt;/span&gt;.random() - &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我也曾经经常使用这种写法，不久前才意识到，这种写法是有问题的，它并不能真正地随机打乱数组。
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://promix.me/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gox_简单实在的Go平台交叉编译工具</title>
+    <link href="https://promix.me/2017/Gox_%E7%AE%80%E5%8D%95%E5%AE%9E%E5%9C%A8%E7%9A%84Go%E5%B9%B3%E5%8F%B0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/"/>
+    <id>https://promix.me/2017/Gox_简单实在的Go平台交叉编译工具/</id>
+    <published>2017-04-08T21:40:59.000Z</published>
+    <updated>2017-04-10T23:16:28.019Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Gox 是一个简单的，不花俏的Go平台交叉编译工具，它的用处就和标准的 go build 一样。Gox 会并行地为多种平台编译。Gox 同时也提供了一套交叉编译工具链。&lt;br&gt;Gox 项目地址：&lt;a href=&quot;https://github.com/mitchellh/gox&quot;&gt;https://github.com/mitchellh/gox&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Golang" scheme="https://promix.me/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS中浮点数运算不精准</title>
+    <link href="https://promix.me/2017/JS%E4%B8%AD%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BF%90%E7%AE%97%E4%B8%8D%E7%B2%BE%E5%87%86/"/>
+    <id>https://promix.me/2017/JS中浮点数运算不精准/</id>
+    <published>2017-04-03T21:51:41.000Z</published>
+    <updated>2017-04-10T23:15:51.272Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Javascript采用了IEEE-745浮点数表示法，这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数都是十进制分数1/10，1/100等，二进制浮点数表示法并不能精确的表示类似0.1这样的简单的数字。所以会有js中浮点数运算不精准的问题出现，我们一般会重写js的四则运算。下面主要看看解决js中浮点数运算不精准的具体方法。
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://promix.me/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>axios 简介</title>
+    <link href="https://promix.me/2017/axios%20%E7%AE%80%E4%BB%8B/"/>
+    <id>https://promix.me/2017/axios 简介/</id>
+    <published>2017-04-03T21:19:59.000Z</published>
+    <updated>2017-04-09T11:50:57.774Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从浏览器中创建 XMLHttpRequest&lt;/li&gt;
+&lt;li&gt;从 node.js 发出 http 请求&lt;/li&gt;
+&lt;li&gt;支持 Promise API&lt;/li&gt;
+&lt;li&gt;拦截请求和响应&lt;/li&gt;
+&lt;li&gt;转换请求和响应数据&lt;/li&gt;
+&lt;li&gt;取消请求&lt;/li&gt;
+&lt;li&gt;自动转换JSON数据&lt;/li&gt;
+&lt;li&gt;客户端支持防止 CSRF/XSRF
+    
+    </summary>
+    
+    
+      <category term="notebook" scheme="https://promix.me/tags/notebook/"/>
+    
+  </entry>
+  
+</feed>
