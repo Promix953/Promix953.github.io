@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://promix.me/"/>
-  <updated>2017-04-11T08:55:30.316Z</updated>
+  <updated>2017-04-12T10:44:12.343Z</updated>
   <id>https://promix.me/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新 Node 项目注意点</title>
+    <link href="https://promix.me/2017/Node%E9%A1%B9%E7%9B%AE%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
+    <id>https://promix.me/2017/Node项目注意点/</id>
+    <published>2017-04-12T18:42:37.000Z</published>
+    <updated>2017-04-12T10:44:12.343Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;随着语言，工具，运行环境，开发方式的不断变化，你的 node 项目当然也需要不断的与时俱进，那么我们就依次来看看需要注意哪些问题吧。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://promix.me/tags/JavaScript/"/>
+    
+      <category term="Node.js" scheme="https://promix.me/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>妙用Javascript中apply、call、bind</title>
