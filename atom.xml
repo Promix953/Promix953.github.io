@@ -36,6 +36,24 @@
   </entry>
   
   <entry>
+    <title>JS深拷贝碰到的问题</title>
+    <link href="https://promix.me/2017/JS%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://promix.me/2017/JS深拷贝碰到的问题/</id>
+    <published>2017-04-12T10:18:22.000Z</published>
+    <updated>2017-04-12T11:22:12.315Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js的数据类型有：Null Undefined Boolean Number Array String Object 之分，es6后又增加了Symbol，其中分为2大类：基本数据类型和对象类型，同时产生了相应的2个传值方式：赋值和引用；
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://promix.me/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>妙用Javascript中apply、call、bind</title>
     <link href="https://promix.me/2017/%E5%A6%99%E7%94%A8Javascript%E4%B8%ADapply%E3%80%81call%E3%80%81bind/"/>
     <id>https://promix.me/2017/妙用Javascript中apply、call、bind/</id>
