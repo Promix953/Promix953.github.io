@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>https://promix.me/2017/axios%20%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2017-04-12T16:24:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>axios 简介</title>
+        <pubTime>2017-04-03T21:19:59.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://promix.me/2017/hello-world/</loc>
     <lastmod>2017-04-12T15:48:25.000Z</lastmod>
     <data>
@@ -63,23 +80,6 @@
         <display>
         <title>妙用Javascript中apply、call、bind</title>
         <pubTime>2017-04-11T16:52:52.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://promix.me/2017/axios%20%E7%AE%80%E4%BB%8B/</loc>
-    <lastmod>2017-04-11T06:25:27.900Z</lastmod>
-    <data>
-        <display>
-        <title>axios 简介</title>
-        <pubTime>2017-04-03T21:19:59.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
