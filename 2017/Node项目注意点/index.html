@@ -96,13 +96,13 @@
 <meta name="description" content="随着语言，工具，运行环境，开发方式的不断变化，你的 node 项目当然也需要不断的与时俱进，那么我们就依次来看看需要注意哪些问题吧。">
 <meta name="keywords" content="JavaScript,Node.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新 Node 项目注意点">
+<meta property="og:title" content="Node 项目注意点">
 <meta property="og:url" content="https://promix.me/2017/Node项目注意点/index.html">
 <meta property="og:site_name" content="Promix953's Note">
 <meta property="og:description" content="随着语言，工具，运行环境，开发方式的不断变化，你的 node 项目当然也需要不断的与时俱进，那么我们就依次来看看需要注意哪些问题吧。">
-<meta property="og:updated_time" content="2017-04-12T10:44:12.343Z">
+<meta property="og:updated_time" content="2017-04-12T10:48:57.899Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新 Node 项目注意点">
+<meta name="twitter:title" content="Node 项目注意点">
 <meta name="twitter:description" content="随着语言，工具，运行环境，开发方式的不断变化，你的 node 项目当然也需要不断的与时俱进，那么我们就依次来看看需要注意哪些问题吧。">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title> 新 Node 项目注意点 | Promix953's Note </title>
+  <title> Node 项目注意点 | Promix953's Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -334,7 +334,7 @@
             
             
               
-                新 Node 项目注意点
+                Node 项目注意点
               
             
           </h2>
@@ -386,7 +386,14 @@
 
       
         <p>随着语言，工具，运行环境，开发方式的不断变化，你的 node 项目当然也需要不断的与时俱进，那么我们就依次来看看需要注意哪些问题吧。<br><a id="more"></a> </p>
-<h3 id="现在开始使用-ES2015"><a href="#现在开始使用-ES2015" class="headerlink" title="现在开始使用 ES2015"></a>现在开始使用 ES2015</h3><p>箭头函数<br>模板字符串<br>rest参数，扩展运算符(spread),函数默认值<br>变量的解构赋值<br>generator 和 promises<br>maps，sets 和 symbols</p>
+<h3 id="现在开始使用-ES2015"><a href="#现在开始使用-ES2015" class="headerlink" title="现在开始使用 ES2015"></a>现在开始使用 ES2015</h3><ul>
+<li>箭头函数</li>
+<li>模板字符串</li>
+<li>rest参数，扩展运算符(spread),函数默认值</li>
+<li>变量的解构赋值</li>
+<li>generator 和 promises</li>
+<li>maps，sets 和 symbols</li>
+</ul>
 <p>在服务器端的推荐使用新的 node 解释器支持的语法，或者可以用babel作为compile层（具体做法参考<a href="https://github.com/gf-rd/gf-skeleton-node" target="_blank" rel="external">脚手架</a>）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 从 express's req.query 解构 特定参数 ?page=2&amp;size=10&amp;word=测试</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> &#123;page, size, word&#125; = req.query;</div></pre></td></tr></table></figure>
 <h3 id="异步函数支持回调惯例和Promise新写法"><a href="#异步函数支持回调惯例和Promise新写法" class="headerlink" title="异步函数支持回调惯例和Promise新写法"></a>异步函数支持回调惯例和Promise新写法</h3><p>过去，当Promise没有成为Node默认搭载的语法时，推荐模块通过导出 error-first callback 的接口形式。但是现在通常需要支持两种形式：</p>
@@ -413,7 +420,7 @@
 <li><a href="http://12factor.net/zh_cn/admin-processes" target="_blank" rel="external">后台管理任务当作一次性进程运行</a></li>
 </ul>
 <h3 id="始终用-npm-init-开始新项目"><a href="#始终用-npm-init-开始新项目" class="headerlink" title="始终用 npm init 开始新项目"></a>始终用 npm init 开始新项目</h3><p>通过 npm init 来初始化你的node项目，通过promt 确定你的项目名称，开发者信息等（当然你可以通过 –yes 旗标来跳过）<br>Tip: 主要你应该总是显示指名你的node engines 版本（node -v），确保你的开发环境，测试环境和线上环境是用同一版本的 node.</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"engines"</span>: &#123;</div><div class="line">		<span class="attr">"node"</span>: <span class="string">"6.10.2"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"engines"</span>: &#123;</div><div class="line">    <span class="attr">"node"</span>: <span class="string">"6.10.2"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="文件名始终小写"><a href="#文件名始终小写" class="headerlink" title="文件名始终小写"></a>文件名始终小写</h3><p>因为在 OSX 和 Windows 系统中，MyClass.js 和 myclass.js 没有任何区别，Linux 则会区分。所以为了你写的代码在不同操作系统是可移植的（在使用 require 来引入模块确保语句是一致明确的），所以始终保持小写 - my-class.js</p>
 <h3 id="智能的-npmrc-和正确的版本管理做法"><a href="#智能的-npmrc-和正确的版本管理做法" class="headerlink" title="智能的.npmrc 和正确的版本管理做法"></a>智能的.npmrc 和正确的版本管理做法</h3><p>默认上， npm 在安装新的依赖的modules，默认不会加入到package.json中。同时，modules的版本号不是严格锁死的（^尖角号来确保大版本保持一致）这样会造成一些问题，如在发布时才发现没有把依赖写入到package.json中，造成线上缺少必要的模块，线上部署发现用的不是相同的modules，导致莫名其妙的问题和大量的depricated warning警告。</p>
 <p>所以安装新依赖推荐这样的写法：<code>npm install foobar --save --save-exact</code><br>或者写入.npmrc 这样下次 npm install 就不会犯错啦</p>
@@ -442,7 +449,7 @@
 <li>Microservice Weekly Newsletter</li>
 <li>Changelog Weekly - for Open-Source news</li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://blog.risingstack.com/how-to-become-a-better-node-js-developer-in-2016/" target="_blank" rel="external">How to Become a Better Node.js Developer</a></li>
 <li><a href="https://blog.heroku.com/archives/2015/11/10/node-habits-2016" target="_blank" rel="external">10 habits of a happy node hacker 2016</a></li>
 <li><a href="http://12factor.net/zh_cn" target="_blank" rel="external">Web 服务开发的十二条军规</a></li>
@@ -637,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在开始使用-ES2015"><span class="nav-number">1.</span> <span class="nav-text">现在开始使用 ES2015</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步函数支持回调惯例和Promise新写法"><span class="nav-number">2.</span> <span class="nav-text">异步函数支持回调惯例和Promise新写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步模式"><span class="nav-number">3.</span> <span class="nav-text">异步模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">4.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回调中的错误处理"><span class="nav-number">4.1.</span> <span class="nav-text">回调中的错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise中的错误处理"><span class="nav-number">4.2.</span> <span class="nav-text">Promise中的错误处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用标准的-JavaScript-代码风格"><span class="nav-number">5.</span> <span class="nav-text">使用标准的 JavaScript 代码风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-应用开发的十二条军规"><span class="nav-number">6.</span> <span class="nav-text">Web 应用开发的十二条军规</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#始终用-npm-init-开始新项目"><span class="nav-number">7.</span> <span class="nav-text">始终用 npm init 开始新项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件名始终小写"><span class="nav-number">8.</span> <span class="nav-text">文件名始终小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#智能的-npmrc-和正确的版本管理做法"><span class="nav-number">9.</span> <span class="nav-text">智能的.npmrc 和正确的版本管理做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#及时更新依赖"><span class="nav-number">10.</span> <span class="nav-text">及时更新依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择合适的数据库"><span class="nav-number">11.</span> <span class="nav-text">选择合适的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监控你的应用程序"><span class="nav-number">12.</span> <span class="nav-text">监控你的应用程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用构建系统"><span class="nav-number">13.</span> <span class="nav-text">使用构建系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NPM-生命周期钩子"><span class="nav-number">14.</span> <span class="nav-text">NPM 生命周期钩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管好垃圾回收"><span class="nav-number">15.</span> <span class="nav-text">管好垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用长期支持的-Node-js-版本"><span class="nav-number">16.</span> <span class="nav-text">使用长期支持的 Node.js 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用语义化的版本号"><span class="nav-number">17.</span> <span class="nav-text">使用语义化的版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续学习和跟上潮流"><span class="nav-number">18.</span> <span class="nav-text">持续学习和跟上潮流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在开始使用-ES2015"><span class="nav-number">1.</span> <span class="nav-text">现在开始使用 ES2015</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步函数支持回调惯例和Promise新写法"><span class="nav-number">2.</span> <span class="nav-text">异步函数支持回调惯例和Promise新写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步模式"><span class="nav-number">3.</span> <span class="nav-text">异步模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">4.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回调中的错误处理"><span class="nav-number">4.1.</span> <span class="nav-text">回调中的错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise中的错误处理"><span class="nav-number">4.2.</span> <span class="nav-text">Promise中的错误处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用标准的-JavaScript-代码风格"><span class="nav-number">5.</span> <span class="nav-text">使用标准的 JavaScript 代码风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-应用开发的十二条军规"><span class="nav-number">6.</span> <span class="nav-text">Web 应用开发的十二条军规</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#始终用-npm-init-开始新项目"><span class="nav-number">7.</span> <span class="nav-text">始终用 npm init 开始新项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件名始终小写"><span class="nav-number">8.</span> <span class="nav-text">文件名始终小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#智能的-npmrc-和正确的版本管理做法"><span class="nav-number">9.</span> <span class="nav-text">智能的.npmrc 和正确的版本管理做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#及时更新依赖"><span class="nav-number">10.</span> <span class="nav-text">及时更新依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择合适的数据库"><span class="nav-number">11.</span> <span class="nav-text">选择合适的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监控你的应用程序"><span class="nav-number">12.</span> <span class="nav-text">监控你的应用程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用构建系统"><span class="nav-number">13.</span> <span class="nav-text">使用构建系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NPM-生命周期钩子"><span class="nav-number">14.</span> <span class="nav-text">NPM 生命周期钩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管好垃圾回收"><span class="nav-number">15.</span> <span class="nav-text">管好垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用长期支持的-Node-js-版本"><span class="nav-number">16.</span> <span class="nav-text">使用长期支持的 Node.js 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用语义化的版本号"><span class="nav-number">17.</span> <span class="nav-text">使用语义化的版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续学习和跟上潮流"><span class="nav-number">18.</span> <span class="nav-text">持续学习和跟上潮流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">19.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
