@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://promix.me/"/>
-  <updated>2017-04-13T15:41:23.586Z</updated>
+  <updated>2017-04-13T16:05:24.834Z</updated>
   <id>https://promix.me/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript获取缓存和清除缓存API</title>
+    <link href="https://promix.me/2017/JavaScript_Cache_API/"/>
+    <id>https://promix.me/2017/JavaScript_Cache_API/</id>
+    <published>2017-04-14T00:02:17.000Z</published>
+    <updated>2017-04-13T16:05:24.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JavaScript ServiceWorker API 的好处就是让 WEB 开发人员轻松的控制缓存。虽然使用 ETags 等技术也是一种控制缓存的技术，按使用 JavaScript 让程序来控制缓存功能更强大，更自由。当然，强大有强大的好处，也有弊处——你需要做善后处理，所谓的善后处理，就是要清理缓存。&lt;/p&gt;
+&lt;p&gt;下面我们来看看如何创建缓存对象、在缓存里添加请求缓存数据，从缓存里删除请求缓存的数据，最后是如何完全的删除缓存。
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://promix.me/tags/JavaScript/"/>
+    
+      <category term="API" scheme="https://promix.me/tags/API/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解JavaScript-replace</title>

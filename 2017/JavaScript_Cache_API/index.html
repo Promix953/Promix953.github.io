@@ -1,0 +1,827 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,前端,API" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Promix953's Note" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript ServiceWorker API 的好处就是让 WEB 开发人员轻松的控制缓存。虽然使用 ETags 等技术也是一种控制缓存的技术，按使用 JavaScript 让程序来控制缓存功能更强大，更自由。当然，强大有强大的好处，也有弊处——你需要做善后处理，所谓的善后处理，就是要清理缓存。 下面我们来看看如何创建缓存对象、在缓存里添加请求缓存数据，从缓存里删除请求缓存的数据，最后">
+<meta name="keywords" content="JavaScript,API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript获取缓存和清除缓存API">
+<meta property="og:url" content="https://promix.me/2017/JavaScript_Cache_API/index.html">
+<meta property="og:site_name" content="Promix953's Note">
+<meta property="og:description" content="JavaScript ServiceWorker API 的好处就是让 WEB 开发人员轻松的控制缓存。虽然使用 ETags 等技术也是一种控制缓存的技术，按使用 JavaScript 让程序来控制缓存功能更强大，更自由。当然，强大有强大的好处，也有弊处——你需要做善后处理，所谓的善后处理，就是要清理缓存。 下面我们来看看如何创建缓存对象、在缓存里添加请求缓存数据，从缓存里删除请求缓存的数据，最后">
+<meta property="og:updated_time" content="2017-04-13T16:05:24.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript获取缓存和清除缓存API">
+<meta name="twitter:description" content="JavaScript ServiceWorker API 的好处就是让 WEB 开发人员轻松的控制缓存。虽然使用 ETags 等技术也是一种控制缓存的技术，按使用 JavaScript 让程序来控制缓存功能更强大，更自由。当然，强大有强大的好处，也有弊处——你需要做善后处理，所谓的善后处理，就是要清理缓存。 下面我们来看看如何创建缓存对象、在缓存里添加请求缓存数据，从缓存里删除请求缓存的数据，最后">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'XIPHPJP48M',
+      apiKey: '0c6bbefe9da3158b267d622f3c730945',
+      indexName: 'blog_promix',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索","hits_empty":"关键词 ${query} 无搜索结果","hits_stats":"找到 ${hits} 条结果 （用时 ${time} 毫秒）"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://promix.me/2017/JavaScript_Cache_API/"/>
+
+
+
+
+
+  <title> JavaScript获取缓存和清除缓存API | Promix953's Note </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-97215242-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?da5b1d38f9236de89fa32fae1d0dcdbd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Promix953's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Keep It Simple Do It Well</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://promix.me/2017/JavaScript_Cache_API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Promix953">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="//i.niupic.com/images/2017/04/12/PXo3XK.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Promix953's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript获取缓存和清除缓存API
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T00:02:17+00:00">
+                2017-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JavaScript ServiceWorker API 的好处就是让 WEB 开发人员轻松的控制缓存。虽然使用 ETags 等技术也是一种控制缓存的技术，按使用 JavaScript 让程序来控制缓存功能更强大，更自由。当然，强大有强大的好处，也有弊处——你需要做善后处理，所谓的善后处理，就是要清理缓存。</p>
+<p>下面我们来看看如何创建缓存对象、在缓存里添加请求缓存数据，从缓存里删除请求缓存的数据，最后是如何完全的删除缓存。<a id="more"></a></p>
+<h2 id="判断浏览器对缓存对象caches-API-的支持"><a href="#判断浏览器对缓存对象caches-API-的支持" class="headerlink" title="判断浏览器对缓存对象caches API 的支持"></a>判断浏览器对缓存对象<code>caches</code> API 的支持</h2><p>检查浏览器是否支持 Cache API</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="string">'caches'</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</div><div class="line">  <span class="comment">// Has support!</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>检查 <code>window</code> 里是否存在 <code>caches</code> 对象。</p>
+<h2 id="创建一个缓存对象"><a href="#创建一个缓存对象" class="headerlink" title="创建一个缓存对象"></a>创建一个缓存对象</h2><p>创建一个缓存对象的方法是使用 <code>caches.open()</code> ，并传入缓存的名称：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</div><div class="line">  <span class="comment">// 缓存创建完成，现在就可以访问了</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这个 <code>caches.open</code> 方法返回一个 Promise ，其中的 <code>cache</code> 对象新创建出来，如果是以前创建过，就不重新创建。</p>
+<h2 id="添加缓存数据"><a href="#添加缓存数据" class="headerlink" title="添加缓存数据"></a>添加缓存数据</h2><p>对于这类的缓存，你可以把它想象成一个 <code>Request</code> 对象数组， <code>Request</code> 请求获取的响应数据将会按键值存储在缓存对象里。有两个方法可以往缓存里添加数据：<code>add</code> 和 <code>addAll</code>。用这两个方法将要缓存的请求的地址添加进去。关于 <code>Request</code> 对象的介绍可以参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API" target="_blank" rel="external">Fetch API</a> 。</p>
+<p>使用 <code>addAll</code> 方法可以批量添加缓存请求：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123; </div><div class="line">  cache.addAll([<span class="string">'/'</span>, <span class="string">'/images/logo.png'</span>])</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">      <span class="comment">// Cached!</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这个 <code>addAll</code> 方法可以接受一个地址数组作为参数，这些请求地址的响应数据将会被缓存在cache对象里。<code>addAll</code> 返回的是一个 Promise 。添加单个地址使用 <code>add</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</div><div class="line">  cache.add(<span class="string">'/page/1'</span>);  <span class="comment">// "/page/1" 地址将会被请求，响应数据会缓存起来。</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>add()</code> 方法还可以接受一个自定义的 <code>Request</code> :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</div><div class="line">  cache.add(<span class="keyword">new</span> Request(<span class="string">'/page/1'</span>, &#123; <span class="comment">/* 请求参数 */</span> &#125;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>跟 <code>add()</code> 方法很相似，<code>put()</code> 方法也可以添加请求地址，同时添加它的响应数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'/page/1'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> cache.put(<span class="string">'/page/1'</span>, response);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="访问缓存数据"><a href="#访问缓存数据" class="headerlink" title="访问缓存数据"></a>访问缓存数据</h2><p>要查看已经缓存的请求数据，我们可以使用缓存对象里的 <code>keys()</code> 方法来获取所有缓存 <code>Request</code> 对象，以数组形式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123; </div><div class="line">  cache.keys().then(<span class="function"><span class="keyword">function</span>(<span class="params">cachedRequests</span>) </span>&#123; </div><div class="line">    <span class="built_in">console</span>.log(cachedRequests); <span class="comment">// [Request, Request]</span></div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">Request &#123;</div><div class="line">  bodyUsed: false</div><div class="line">  credentials: "omit"</div><div class="line">  headers: Headers</div><div class="line">  integrity: ""</div><div class="line">  method: "GET"</div><div class="line">  mode: "no-cors"</div><div class="line">  redirect: "follow"</div><div class="line">  referrer: ""</div><div class="line">  url: "http://www.example.com/images/logo.png"</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>如果你想查看缓存的 <code>Request</code> 请求的响应内容，可以使用 <code>cache.match()</code> 或 <code>cache.matchAll()</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</div><div class="line">  cache.match(<span class="string">'/page/1'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">matchedResponse</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(matchedResponse);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">Response &#123;</div><div class="line">  body: (...),</div><div class="line">  bodyUsed: false,</div><div class="line">  headers: Headers,</div><div class="line">  ok: true,</div><div class="line">  status: 200,</div><div class="line">  statusText: "OK",</div><div class="line">  type: "basic",</div><div class="line">  url: "https://www.example.com/page/1"</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>关于 <code>Response</code> 对象的用法和详细信息，可以参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API" target="_blank" rel="external">Fetch API</a> 。</p>
+<h2 id="删除缓存里的数据"><a href="#删除缓存里的数据" class="headerlink" title="删除缓存里的数据"></a>删除缓存里的数据</h2><p>从缓存里删除数据，我们可以使用 cache 对象里的 <code>delete()</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">caches.open(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</div><div class="line">  cache.delete(<span class="string">'/page/1'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这样，缓存里将不再有 <code>/page/1</code> 请求数据。</p>
+<h2 id="获取现有的缓存里的缓存名称"><a href="#获取现有的缓存里的缓存名称" class="headerlink" title="获取现有的缓存里的缓存名称"></a>获取现有的缓存里的缓存名称</h2><p>想要获取缓存里已经存在的缓存数据的名称，我们需要使用 <code>caches.keys()</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">caches.keys().then(<span class="function"><span class="keyword">function</span>(<span class="params">cacheKeys</span>) </span>&#123; </div><div class="line">  <span class="built_in">console</span>.log(cacheKeys); <span class="comment">// ex: ["test-cache"]</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>window.caches.keys()</code> 返回的也是一个Promise 。</p>
+<h2 id="删除一个缓存对象"><a href="#删除一个缓存对象" class="headerlink" title="删除一个缓存对象"></a>删除一个缓存对象</h2><p>想要删除一个缓存对象，你只需要缓存的键名即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">caches.delete(<span class="string">'test-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Cache successfully deleted!'</span>); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>大量删除旧缓存数据的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 假设`CACHE_NAME`是新的缓存的名称</span></div><div class="line"><span class="comment">// 现在清除旧的缓存</span></div><div class="line"><span class="keyword">var</span> CACHE_NAME = <span class="string">'version-8'</span>;</div><div class="line"></div><div class="line"><span class="comment">// ...</span></div><div class="line"></div><div class="line">caches.keys().then(<span class="function"><span class="keyword">function</span>(<span class="params">cacheNames</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.all(</div><div class="line">    cacheNames.map(<span class="function"><span class="keyword">function</span>(<span class="params">cacheName</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span>(cacheName != CACHE_NAME) &#123;</div><div class="line">        <span class="keyword">return</span> caches.delete(cacheName);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>火狐浏览器和谷歌浏览器都支持 service worker，相信很快就会有更多的网站、app 使用这种缓存技术来提高运行速度。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/JavaScript-replace/" rel="prev" title="深入理解JavaScript-replace">
+                深入理解JavaScript-replace <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="//i.niupic.com/images/2017/04/12/PXo3XK.jpg"
+               alt="Promix953" />
+          <p class="site-author-name" itemprop="name">Promix953</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://github.com/promix953" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断浏览器对缓存对象caches-API-的支持"><span class="nav-number">1.</span> <span class="nav-text">判断浏览器对缓存对象caches API 的支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个缓存对象"><span class="nav-number">2.</span> <span class="nav-text">创建一个缓存对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加缓存数据"><span class="nav-number">3.</span> <span class="nav-text">添加缓存数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问缓存数据"><span class="nav-number">4.</span> <span class="nav-text">访问缓存数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除缓存里的数据"><span class="nav-number">5.</span> <span class="nav-text">删除缓存里的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取现有的缓存里的缓存名称"><span class="nav-number">6.</span> <span class="nav-text">获取现有的缓存里的缓存名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除一个缓存对象"><span class="nav-number">7.</span> <span class="nav-text">删除一个缓存对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Promix953</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a rel="external nofollow" class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a rel="external nofollow" class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/instantsearch.js/1.11.4/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.bootcss.com/instantsearch.js/1.11.4/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
