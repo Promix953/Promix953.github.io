@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>https://promix.me/2017/nodejs_stream_%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2017-04-12T19:09:17.767Z</lastmod>
+    <data>
+        <display>
+        <title>nodejs_stream_手册</title>
+        <pubTime>2017-04-10T18:22:52.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://promix.me/2017/axios%20%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2017-04-12T16:24:52.000Z</lastmod>
     <data>
@@ -134,23 +151,6 @@
         <pubTime>2017-04-03T21:51:41.000Z</pubTime>
         
         <tag>JavaScript</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://promix.me/2017/nodejs_stream_%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2017-04-10T23:15:14.929Z</lastmod>
-    <data>
-        <display>
-        <title>nodejs_stream_手册</title>
-        <pubTime>2017-04-10T18:22:52.000Z</pubTime>
-        
-        <tag>NodeJs</tag>
          
          
            
